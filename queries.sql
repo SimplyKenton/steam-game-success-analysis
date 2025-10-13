@@ -98,29 +98,109 @@ ORDER BY avg_rating DESC;
 
 
 -- ========================================
--- SECTION 5: GENRE ANALYSIS
--- Which genres have the most engaged players?
+-- SECTION 5: GENRE PERFORMANCE ANALYSIS
+-- Which genres drive genuine player engagement?
 -- ========================================
 
--- Top 15 genres by average playtime
--- Note: Many games have multiple genres, so there's overlap
+-- During initial analysis, I discovered extreme outliers:
+-- Visual novel games showing 100,000+ hours (used for Steam card farming)
+-- Example: "LoveKami -Healing Harem-" had 1.4 million hours (167 years!)
+-- 
+-- Solution: Filter out games with >10,000 hours to focus on real engagement
+-- 10,000 hours is generous (even hardcore MMO players rarely exceed 5,000 hours)
+-- This filter removes <0.3% of games but dramatically improves data quality
+
+-- Compare major genres side-by-side using UNION ALL
+-- UNION ALL stacks multiple query results into one table for easy comparison
+
 SELECT 
-    genres,
-    COUNT(*) AS game_count,
+    'Simulation' AS genre,
+    COUNT(*) AS games_with_genre,
     ROUND(AVG(average_playtime_forever), 2) AS avg_playtime,
     ROUND(AVG(positive * 100.0 / (positive + negative)), 2) AS avg_rating
 FROM games
-WHERE genres IS NOT NULL
-  AND average_playtime_forever > 0
+WHERE genres LIKE '%Simulation%'
   AND (positive + negative) > 100
-GROUP BY genres
-HAVING COUNT(*) >= 10  -- Only genres with at least 10 games
-ORDER BY avg_playtime DESC
-LIMIT 15;
+  AND average_playtime_forever > 0
+  AND average_playtime_forever < 10000
 
--- Observation: RPG and Strategy genres tend to have highest playtime
--- Casual and puzzle games have lower playtime but still good ratings
+UNION ALL
 
+SELECT 
+    'Action' AS genre,
+    COUNT(*),
+    ROUND(AVG(average_playtime_forever), 2),
+    ROUND(AVG(positive * 100.0 / (positive + negative)), 2)
+FROM games
+WHERE genres LIKE '%Action%'
+  AND (positive + negative) > 100
+  AND average_playtime_forever > 0
+  AND average_playtime_forever < 10000
+
+UNION ALL
+
+SELECT 
+    'RPG' AS genre,
+    COUNT(*),
+    ROUND(AVG(average_playtime_forever), 2),
+    ROUND(AVG(positive * 100.0 / (positive + negative)), 2)
+FROM games
+WHERE genres LIKE '%RPG%'
+  AND (positive + negative) > 100
+  AND average_playtime_forever > 0
+  AND average_playtime_forever < 10000
+
+UNION ALL
+
+SELECT 
+    'Strategy' AS genre,
+    COUNT(*),
+    ROUND(AVG(average_playtime_forever), 2),
+    ROUND(AVG(positive * 100.0 / (positive + negative)), 2)
+FROM games
+WHERE genres LIKE '%Strategy%'
+  AND (positive + negative) > 100
+  AND average_playtime_forever > 0
+  AND average_playtime_forever < 10000
+
+UNION ALL
+
+SELECT 
+    'Indie' AS genre,
+    COUNT(*),
+    ROUND(AVG(average_playtime_forever), 2),
+    ROUND(AVG(positive * 100.0 / (positive + negative)), 2)
+FROM games
+WHERE genres LIKE '%Indie%'
+  AND (positive + negative) > 100
+  AND average_playtime_forever > 0
+  AND average_playtime_forever < 10000
+
+ORDER BY avg_playtime DESC;
+
+-- RESULTS (after cleaning outliers):
+-- Simulation: 2,616 hrs avg, 79.9% rating (1,708 games) ← HIGHEST ENGAGEMENT
+-- Action: 1,827 hrs avg, 78.4% rating (3,205 games) ← MOST COMMON
+-- RPG: 1,146 hrs avg, 78.76% rating (1,688 games)
+-- Strategy: 1,013 hrs avg, 77.87% rating (1,618 games)
+-- Indie: 773 hrs avg, 80.23% rating (4,498 games) ← HIGHEST SATISFACTION
+--
+-- KEY FINDINGS:
+-- 1. Simulation games dominate long-term engagement (2.5x more than Indie)
+-- 2. Action is most popular genre but middle-tier engagement
+-- 3. Indie has highest ratings despite lowest playtime (quality > length)
+-- 4. Genre distribution is diverse - no single genre dominates Steam
+--
+-- BUSINESS INSIGHT:
+-- Simulation = Deep engagement, niche audience (building/management fans)
+-- Action = Broad appeal, moderate retention (best for volume sales)
+-- Indie = High satisfaction, shorter experiences (value-focused players)
+--
+-- RECOMMENDATION:
+-- Match genre to business model:
+--   Long-term monetization (DLC/updates) → Simulation/Strategy
+--   Volume sales (one-time purchase) → Action/Indie
+--   Premium pricing → Simulation (dedicated audience willing to pay)
 
 -- ========================================
 -- SECTION 6: RATING VS PLAYTIME CORRELATION
