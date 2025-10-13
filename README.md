@@ -55,8 +55,6 @@ Initial analysis showed impossible 17,618-hour averages. Investigation revealed 
 ### 4. Higher Ratings Correlate With Sustained Engagement
 Analysis of the relationship between user ratings and playtime reveals that highly-rated games achieve significantly more player engagement.
 
-**[Run Query #6 and add your data here]**
-
 **Insight:** The positive correlation between ratings and playtime suggests that quality games retain players longer. Players invest time in games they enjoy and reward that enjoyment with positive reviews.
 
 **Business Implication:** Focus on quality and player satisfaction over content padding. A well-designed experience that maintains 90%+ ratings will outperform a bloated game with mixed reviews.
