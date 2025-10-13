@@ -39,6 +39,27 @@ RPG and Strategy genres dominate long-term engagement with 200+ hours average pl
 
 ---
 
+### 5. Simulation Games Dominate Long-Term Engagement
+
+Genre analysis reveals **Simulation games achieve 2,616 hours** average playtime—more than **3x higher** than Indie games and significantly outperforming all other major genres.
+
+**Key Data (after outlier removal):**
+- **Simulation:** 2,616 hrs, 79.9% rating (1,708 games)
+- **Action:** 1,827 hrs, 78.4% rating (3,205 games) - Most common genre
+- **RPG:** 1,146 hrs, 78.76% rating (1,688 games)
+- **Strategy:** 1,013 hrs, 77.87% rating (1,618 games)
+- **Indie:** 773 hrs, **80.23% rating** (4,498 games) - Highest satisfaction
+
+**Surprising Insight:** Despite lowest playtime, **Indie games have the highest user ratings** (80.23%), suggesting players value quality and completion over length.
+
+**Data Cleaning Story:**
+Initial analysis showed impossible 17,618-hour averages. Investigation revealed visual novel games with 1.4 million hours (167 years!) used for Steam trading card farming. Applied 10,000-hour cap to filter card-farming outliers while preserving legitimate high-engagement games like MMOs.
+
+**Business Recommendations:**
+1. **Simulation developers:** Can justify premium pricing ($20-40) - dedicated audience accepts depth over accessibility
+2. **Action developers:** Optimize for volume sales - largest audience but moderate per-game retention
+3. **Indie developers:** Focus on tight, quality experiences - players reward completion and polish over padding
+
 ## 📊 Tools & Technologies
 - **SQL (SQLite):** Data analysis, aggregations, filtering, CASE statements
 - **Tableau:** Data visualization and dashboard creation
