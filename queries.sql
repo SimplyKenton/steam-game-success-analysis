@@ -102,17 +102,6 @@ ORDER BY avg_rating DESC;
 -- Which genres drive genuine player engagement?
 -- ========================================
 
--- During initial analysis, I discovered extreme outliers:
--- Visual novel games showing 100,000+ hours (used for Steam card farming)
--- Example: "LoveKami -Healing Harem-" had 1.4 million hours (167 years!)
--- 
--- Solution: Filter out games with >10,000 hours to focus on real engagement
--- 10,000 hours is generous (even hardcore MMO players rarely exceed 5,000 hours)
--- This filter removes <0.3% of games but dramatically improves data quality
-
--- Compare major genres side-by-side using UNION ALL
--- UNION ALL stacks multiple query results into one table for easy comparison
-
 SELECT 
     'Simulation' AS genre,
     COUNT(*) AS games_with_genre,
@@ -178,29 +167,12 @@ WHERE genres LIKE '%Indie%'
 
 ORDER BY avg_playtime DESC;
 
--- RESULTS (after cleaning outliers):
--- Simulation: 2,616 hrs avg, 79.9% rating (1,708 games) ← HIGHEST ENGAGEMENT
--- Action: 1,827 hrs avg, 78.4% rating (3,205 games) ← MOST COMMON
--- RPG: 1,146 hrs avg, 78.76% rating (1,688 games)
--- Strategy: 1,013 hrs avg, 77.87% rating (1,618 games)
--- Indie: 773 hrs avg, 80.23% rating (4,498 games) ← HIGHEST SATISFACTION
---
 -- KEY FINDINGS:
 -- 1. Simulation games dominate long-term engagement (2.5x more than Indie)
 -- 2. Action is most popular genre but middle-tier engagement
 -- 3. Indie has highest ratings despite lowest playtime (quality > length)
 -- 4. Genre distribution is diverse - no single genre dominates Steam
---
--- BUSINESS INSIGHT:
--- Simulation = Deep engagement, niche audience (building/management fans)
--- Action = Broad appeal, moderate retention (best for volume sales)
--- Indie = High satisfaction, shorter experiences (value-focused players)
---
--- RECOMMENDATION:
--- Match genre to business model:
---   Long-term monetization (DLC/updates) → Simulation/Strategy
---   Volume sales (one-time purchase) → Action/Indie
---   Premium pricing → Simulation (dedicated audience willing to pay)
+
 
 -- ========================================
 -- SECTION 6: RATING VS PLAYTIME CORRELATION
@@ -263,22 +235,12 @@ ORDER BY avg_rating DESC;
 -- Games with 50+ achievements achieve 82% positive ratings
 -- Games without achievements only get 75% ratings
 -- 7 percentage point improvement with robust achievement systems
---
--- INTERESTING PATTERN:
--- Games with few achievements (1-20) show highest playtime (2,431 hrs)
--- but lower ratings than 50+ achievements
--- Likely includes older games/MMOs with minimal systems but long gameplay
--- (e.g., Dota 2, CS:GO, older titles that added achievements later)
---
+
 -- BUSINESS INSIGHT:
 -- Achievement systems improve player satisfaction measurably
 -- More achievements = better ratings (up to a point - diminishing returns after 50)
 -- Achievements provide goals, progression tracking, and replay value
---
--- RECOMMENDATION:
--- Design 50+ achievements minimum for new releases
--- Balance quick wins with long-term grinding achievements
--- Track unlock rates to identify where players lose interest
+
 
 -- ========================================
 -- KEY TAKEAWAYS FOR GAME DEVELOPERS
