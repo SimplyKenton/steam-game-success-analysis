@@ -112,7 +112,3 @@ Games with **robust achievement systems (50+)** achieve **82% positive ratings**
 - **Generated 5 actionable business insights** for game developers
 - **Demonstrated SQL proficiency** across 7 analytical queries
 - **Applied data cleaning techniques** to improve analysis accuracy
-
----
-
-## 📁 Repository Structure
