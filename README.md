@@ -1,3 +1,9 @@
+Steam Game Success Analysis: Pricing & Performance InsightsDescription:
+
+Analyzed 27,000+ Steam games to identify key success factors and optimal pricing strategies. Discovered that games priced at $10-19 achieve 9% higher player satisfaction compared to premium titles, revealing critical market positioning insights for game developers and publishers.
+Tools: SQL, Python (Pandas), Tableau
+Key Finding: Data-driven pricing recommendations that maximize both revenue and player satisfaction.
+
 ## 🔍 Key Findings
 
 ### 1. Mature Content Drives Engagement
@@ -5,7 +11,7 @@ Mature-rated games (17+) average **156 hours** of playtime compared to **89 hour
 
 **Business Recommendation:** Target mature audiences for higher player retention and engagement.
 
-**SQL Techniques:** CASE statements for age categorization, GROUP BY aggregation
+
 
 ---
 
@@ -24,7 +30,7 @@ Games priced between $10-19 achieve the **highest player satisfaction** with an 
 - Premium pricing ($30+) risks disappointing players unless game delivers exceptional value
 - The mid-tier price point balances perceived value with quality expectations
 
-**SQL Techniques:** Price bucketing with CASE statements, rating calculations, multi-metric analysis
+
 
 ---
 
@@ -48,7 +54,7 @@ Initial analysis showed impossible 17,618-hour averages. Investigation revealed 
 2. **Action developers:** Optimize for volume sales - largest audience but moderate per-game retention
 3. **Indie developers:** Focus on tight, quality experiences - players reward completion and polish over padding
 
-**SQL Techniques:** UNION ALL for multi-category comparison, LIKE pattern matching, outlier detection and filtering
+
 
 ---
 
@@ -59,7 +65,7 @@ Analysis of the relationship between user ratings and playtime reveals that high
 
 **Business Implication:** Focus on quality and player satisfaction over content padding. A well-designed experience that maintains 90%+ ratings will outperform a bloated game with mixed reviews.
 
-**SQL Techniques:** CASE-based rating categorization, correlation analysis, outlier filtering
+
 
 ---
 
@@ -84,29 +90,7 @@ Games with **robust achievement systems (50+)** achieve **82% positive ratings**
 
 **SQL Techniques:** CASE-based categorization, tier segmentation, feature-to-outcome correlation
 
----
-
-## 📊 Tools & Technologies
-- **SQL (SQLite):** Complex queries, aggregations, filtering, CASE statements, UNION ALL
-- **Tableau:** Interactive dashboards and data visualization
-- **Excel:** Data cleaning and initial exploration
-- **DB Browser for SQLite:** Query development and testing
-- **GitHub:** Version control and documentation
-
----
-
-## 📈 Skills Demonstrated
-- Writing complex SQL queries with multiple conditions and UNION operations
-- Data cleaning and outlier detection (handled card-farming data quality issues)
-- Statistical analysis and correlation identification
-- Business insight generation from raw data
-- Critical thinking and hypothesis testing
-- Data visualization and storytelling
-- Documentation and technical communication
-
----
-
-## 🎯 Project Highlights
+## Project Highlights
 - **27,000+ games analyzed** from Steam marketplace
 - **Discovered and resolved data quality issues** (card-farming outliers)
 - **Generated 5 actionable business insights** for game developers
