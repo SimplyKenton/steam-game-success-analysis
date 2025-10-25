@@ -4,7 +4,7 @@ Analyzed 27,000+ Steam games to identify key success factors and optimal pricing
 Tools: SQL, Python (Pandas), Tableau
 Key Finding: Data-driven pricing recommendations that maximize both revenue and player satisfaction.
 
-## 🔍 Key Findings
+## Key Findings
 
 ### 1. Mature Content Drives Engagement
 Mature-rated games (17+) average **156 hours** of playtime compared to **89 hours** for all-ages titles—a **75% increase**. This suggests the core Steam audience gravitates toward mature themes and content.
