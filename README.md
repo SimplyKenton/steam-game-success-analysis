@@ -1,4 +1,4 @@
-Steam Game Success Analysis: Pricing & Performance InsightsDescription:
+## Steam Game Success Analysis: Pricing & Performance InsightsDescription:
 
 Analyzed 27,000+ Steam games to identify key success factors and optimal pricing strategies. Discovered that games priced at $10-19 achieve 9% higher player satisfaction compared to premium titles, revealing critical market positioning insights for game developers and publishers.
 Tools: SQL, Python (Pandas), Tableau
